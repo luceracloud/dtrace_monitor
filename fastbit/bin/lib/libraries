@@ -1,0 +1,17 @@
+#
+# Dependencies
+#
+# Libraries:
+#
+#  libfastbit.so.0
+#  libprotobuf.so.8
+#  libzmq.so.1
+#
+# Theoretically copies the necessary files, if
+# original installation went as expected.
+#
+
+cp /opt/local/lib/libfastbit.so.0 ./
+cp /opt/local/lib/amd64/libprotobuf.so.8 ./
+cp /opt/local/lib/libzmq.so.1 ./
+

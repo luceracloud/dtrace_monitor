@@ -1,0 +1,94 @@
+// This proto file provides the 
+//  necessary fields to send
+//  data regarding the GZ.
+//
+//  CREATED:  2 AUG 2013
+//  EDITED:   5 AUG 2013
+//  
+
+package PBMSG;
+
+message Packet {
+
+  required string name = 1;
+  required uint64 time = 2;
+  optional uint32 ticks = 3;
+  optional uint32 threads = 4;
+  optional uint32 processes = 5;
+
+  repeated Cpu cpu = 6;
+  repeated Mem mem = 7;
+  repeated Net net = 8;
+  repeated Disk disk = 9;
+  repeated Process process = 10;
+  repeated CallFreq callfreq = 11;
+  repeated string zonename = 12;
+  repeated Cpuqueue cpuqueue = 13;
+
+  message Cpu {
+    optional uint32 core = 1;
+    optional uint32 usage = 2;
+  }
+
+  message Mem {
+    optional uint64 rss = 1;
+    optional uint64 physcap = 2;
+    optional uint64 swap = 3;
+    optional uint64 swapcap = 4;
+    // GZ-specific
+    optional uint64 physmem = 5;
+    optional uint64 pp_kernel = 6;
+    optional uint64 freemem = 7;
+    optional uint64 nalloc_calls = 8;
+    optional uint64 nfree_calls = 9;
+    // Saturation and Errors
+    optional uint32 maj_fault = 10;
+    optional uint32 as_fault = 11;
+    optional uint32 pgin = 12;
+  }
+
+  message Net {
+    optional string instance = 1;
+    optional uint64 obytes64 = 2;
+    optional uint64 rbytes64 = 3;
+    optional uint64 opackets = 4;
+    optional uint64 ipackets = 5;
+    optional uint32 oerrors = 6;
+    optional uint32 ierrors = 7;
+  }
+
+  message Disk {
+    required string instance = 1;
+    optional uint64 nread = 2;
+    optional uint64 nwritten = 3;
+    optional uint32 reads = 4;
+    optional uint32 writes = 5;
+    optional uint64 rtime = 6;
+    optional uint64 wtime = 7;
+    optional uint64 rlentime = 8;
+    optional uint64 wlentime = 9;
+    optional uint32 harderror = 10;
+    optional uint32 softerror = 11;
+    optional uint32 tranerror = 12;
+ }
+
+  message Process {
+    optional uint32 pid = 1;
+    optional string execname = 2;
+    optional uint32 usage = 3;
+    optional uint32 cpu = 4;
+  }
+
+  message CallFreq {
+    required string name = 1;
+    optional uint64 time = 2;
+    optional uint32 value = 3;
+  }
+
+  message Cpuqueue {
+    optional uint32 core = 1;
+    optional uint32 length = 2;
+    optional uint32 amount = 3;
+  }
+
+}
