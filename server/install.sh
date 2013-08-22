@@ -50,7 +50,7 @@ if [ -d /opt/tools/dtrace ]
 then
   echo "It appears the DTrace repo is already installed. Skipping ${BlueB}"
 else
-  git clone https://github.com/luceracloud/dtrace.git
+  git clone https://github.com/luceracloud/dtrace_monitor.git
 fi
 echo "${BlueB}"
 
