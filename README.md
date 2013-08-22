@@ -17,7 +17,7 @@ The source for the __generator__ is included in the `./server` folder of this di
 
 A shell script that will automatically install the __generator__ and the FastBit __collector__ is included in this directory. It can be downloaded and run by using 
 ```bash
-curl https://raw.github.com/luceracloud/dtrace/master/install.sh > install.sh
+curl https://raw.github.com/luceracloud/dtrace_monitor/master/install.sh > install.sh
 sh install.sh
 ```
 Alternatively, to install only the generator, run
