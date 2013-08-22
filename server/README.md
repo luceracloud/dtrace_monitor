@@ -28,6 +28,8 @@ curl https://raw.github.com/luceracloud/dtrace_monitor/master/server/install.sh 
 sh install.sh
 ```
 
+___
+
 ### download & build
 All of this needs to be done in a non-global zone. After everything is settled, you'll have to move the binary and libraries to the global zone manually.
 

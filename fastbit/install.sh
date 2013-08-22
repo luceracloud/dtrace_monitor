@@ -46,7 +46,7 @@ cd tools
 
 # Download source
 echo "${PurpleB}"
-if [ -d /opt/tools/dtrace ]
+if [ -d /opt/tools/dtrace_monitor ]
 then
   echo "It appears the DTrace repo is already installed. Skipping ${BlueB}"
 else
@@ -105,7 +105,7 @@ fi
 # build fastbit listener
 echo ''
 echo "${RedB} building listener service ${BlueB}"
-cd /opt/tools/dtrace/fastbit
+cd /opt/tools/dtrace_monitor/fastbit
 make rel
 
 # Set everything to normal again

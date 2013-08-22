@@ -46,7 +46,7 @@ cd tools
 
 # Download source
 echo "${PurpleB}"
-if [ -d /opt/tools/dtrace ]
+if [ -d /opt/tools/dtrace_monitor ]
 then
   echo "It appears the DTrace repo is already installed. Skipping ${BlueB}"
 else
@@ -89,7 +89,7 @@ fi
 # build server
 echo ''
 echo "${RedB} building generator server ${BlueB}"
-cd /opt/tools/dtrace/server
+cd /opt/tools/dtrace_monitor/server
 make rel
 
 # Set everything to normal again

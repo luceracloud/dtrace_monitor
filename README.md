@@ -11,7 +11,7 @@ In general, the service is made of two parts, the __generator__ and the __collec
 
 The __generator__ runs as a background process and queries kernel statistics while running DTrace scripts or Kstats outputs. The gathered information is wrapped into protocol buffers by zone and broadcast using the ZMQ publish method. The __collector__ also runs as a background process and collectors the zone data as published by the __generator__. It saves the collected information into databases for later access and querying.
 
-![alt text](https://github.com/luceracloud/dtrace_monitor/blob/master/imgs/overview.png "overview of process")
+![alt text](https://raw.github.com/luceracloud/dtrace_monitor/master/imgs/overview.png "overview of process")
 
 The source for the __generator__ is included in the `./server` folder of this directory. Two versions that can be used as __collector__ are included in the `./fastbit` and `./redis` directories. 
 
