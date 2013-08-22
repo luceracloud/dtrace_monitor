@@ -107,6 +107,8 @@ echo ''
 echo "${RedB} building listener service ${BlueB}"
 cd /opt/tools/dtrace_monitor/fastbit
 make rel
+cd lib
+sh libraries
 
 # Set everything to normal again
 cd ${sDir}
