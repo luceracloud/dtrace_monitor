@@ -145,8 +145,11 @@ int main (int argc, char **argv) {
     while (do_loop) {
      
       /* Clean up from last cycle and updates */
-      ZoneData.clear();
       ZoneIndices.clear();
+      for (std::map<std::string, Zone *>::iterator it=ZoneData.begin(); it!=ZoneData.end(); ++it) {
+        delete it->second;
+      }
+      ZoneData.clear();
  
       /* Custom format to add zones to ZoneData &
        * to populate the repeated zonename in the GZ
