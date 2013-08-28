@@ -136,9 +136,10 @@ int main (int argc, char **argv) {
     std::vector<std::string> zones;
 
     UTIL::red();
-    std::cout << "\n Server online!";
-    printf ("\n \033[00;31mStart time was: %2d:%2d:%2d UTC\033[00m\n\n", 
-                (st/3600)%24, (st/60)%60, st%60);
+    time_t rawtime;
+    time (&rawtime);
+    std::cout << "\n Server online!\n";
+    std::cout << " Start time was: " << ctime(&rawtime) << std::endl << std::endl;
     UTIL::clear();
 
     /* Collect and send data in loop */
@@ -146,9 +147,6 @@ int main (int argc, char **argv) {
      
       /* Clean up from last cycle and updates */
       ZoneIndices.clear();
-      for (std::map<std::string, Zone *>::iterator it=ZoneData.begin(); it!=ZoneData.end(); ++it) {
-        delete it->second;
-      }
       ZoneData.clear();
  
       /* Custom format to add zones to ZoneData &
@@ -311,6 +309,7 @@ int main (int argc, char **argv) {
         if (V_LITE) std::cout << "UTC " << (time(NULL)/3600)%24 << ":" <<
                       (time(NULL)/60)%60 << ":" << time(NULL)%60 << std::endl;
         if (VERBOSE) std::cout << "Packet sent" << std::endl;
+        free (z);
       }
         
       struct timespec req = {0};
